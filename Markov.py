@@ -2,6 +2,11 @@ import random
 def markov():
     startIndex = random.randint(0,len(text))
     currentGram = text[startIndex:startIndex+order]
+    
+    # Make sure it starts with a capital letter
+    while not currentGram.istitle(): 
+        startIndex = random.randint(0,len(text))
+        currentGram = text[startIndex:startIndex+order]
 
     result = currentGram
     for i in range(200-order):
